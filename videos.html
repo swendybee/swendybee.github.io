@@ -1,15 +1,64 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Samantha's Videos</title>
+	<link rel="stylesheet" href="style.css">
 </head>
+<div id="video_list">
+
+</div>
+
 <body>
-	<p><iframe width="560" height="315" src="https://www.youtube.com/embed/fCZOmku_2GE" frameborder="0" allowfullscreen></iframe></p>
+	<p id="video_title">Samantha One-Timer</p>
+	<p><iframe id="video_player" width="560" height="315" src="https://www.youtube.com/embed/e71FaHzJmE8" frameborder="0"
+		 allowfullscreen></iframe></p>
+	<!-- 
 	<p><iframe width="560" height="315" src="https://www.youtube.com/embed/LSGGytjnhBQ" frameborder="0" allowfullscreen></iframe></p>
+	<p><iframe width="560" height="315" src="https://www.youtube.com/embed/fCZOmku_2GE" frameborder="0" allowfullscreen></iframe></p>
 	<p><iframe width="560" height="315" src="https://www.youtube.com/embed/-MY0jwHhD9c" frameborder="0" allowfullscreen></iframe></p>
 	<p><iframe width="560" height="315" src="https://www.youtube.com/embed/gpDBd-lkadE" frameborder="0" allowfullscreen></iframe></p>
 	<p><iframe width="560" height="315" src="https://www.youtube.com/embed/lWHhwlpPlg4" frameborder="0" allowfullscreen></iframe></p>
 	<p><iframe width="560" height="315" src="https://www.youtube.com/embed/419ye77aR3Q" frameborder="0" allowfullscreen></iframe></p>
-	<p><iframe width="560" height="315" src="https://www.youtube.com/embed/bxuukvLIgB0" frameborder="0" allowfullscreen></iframe></p>
+	<p><iframe width="560" height="315" src="https://www.youtube.com/embed/bxuukvLIgB0" frameborder="0" allowfullscreen></iframe></p> 
+-->
+	<script type="text/javascript">
+		function ready(fn) {
+			if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+				fn();
+			} else {
+				document.addEventListener('DOMContentLoaded', fn);
+			}
+		}
+
+		function init() {
+			let video_list = document.querySelector('#video_list');
+			let video_player = document.querySelector('#video_player');
+			let video_title = document.querySelector('#video_title');
+			let videos = [
+				{ title: 'Samantha One-Timer', url: 'https://www.youtube.com/embed/e71FaHzJmE8' },
+				{ title: 'Samantha Deflection', url: 'https://www.youtube.com/embed/4s5klSZ1mL4' },
+				{ title: 'Samantha On The shootout', url: 'https://www.youtube.com/embed/xMWI2pAdPSM' }
+			];
+			videos.forEach((i) => {
+				let entry = document.createElement('button');
+				entry.value = i.title;
+				entry.appendChild(document.createTextNode(i.title));
+				video_list.appendChild(entry);
+				video_list.appendChild(document.createElement('p'));
+				video_list.appendChild(document.createElement('p'));
+				entry.addEventListener('click', (e) => {
+					let urlToChange = videos.filter((i) => i.title == e.target.innerText)[0].url;
+					video_player.attributes['src'].value = urlToChange;
+					video_title.innerText = e.target.innerText;
+				});
+			});
+		}
+
+
+		ready(init);
+
+	</script>
 </body>
+
 </html>

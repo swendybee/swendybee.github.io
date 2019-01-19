@@ -1,15 +1,8 @@
-h1 {
-  color: saddlebrown;
+button
+{
+    font-size: 36px;
 }
-
-h2 {
-  color: palegreen;
-}
-
-p {
-  color: teal;
-}
-
-li {
-  color: orange;
+#video_title
+{
+    font-size: 24px;
 }
