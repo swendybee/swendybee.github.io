@@ -1,0 +1,28 @@
+p {
+    color: brown;
+    font-size: 40px;
+    font-style: initial;
+}
+
+h1 {
+    color: green;
+}
+
+h2 {
+    color: lightseagreen;
+    font-style: italic;
+}
+
+h1 {
+    font-style: oblique;
+}
+
+h3 {
+    color: lightsalmon;
+    font-size: 45px;
+}
+
+h4 {
+    color: lightcoral;
+    font-size: 55px;
+}
